@@ -1,0 +1,381 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+/* Header Section */
+header.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #0047AB, #007BFF);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-img {
+    height: 50px; /* Keep the height fixed */
+    width: auto; /* Maintain aspect ratio */
+    transform: scale(1.6); /* Scale up the image */
+}
+
+.logo-text {
+    font-size: 1.8em; /* Increase text size slightly */
+    font-weight: bold;
+    color: #ffd700;
+}
+
+
+.nav-links-container {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.3s ease-in-out;
+    position: relative;
+}
+
+.nav-links li a:hover {
+    color: #ffd700;
+}
+
+.nav-links li a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #ffd700;
+    transition: width 0.3s ease-in-out;
+    width: 0%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav-links li a:hover::after {
+    width: 100%;
+}
+
+
+/* Auth Buttons */
+.auth-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.auth-buttons a {
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn {
+    background-color: #0047AB;
+    color: white;
+    border: 2px solid #0047AB;
+}
+
+.login-btn:hover {
+    background-color: #ffd700;
+    color: #0047AB;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+    }
+
+    .nav-links-container {
+        display: none;
+    }
+
+    
+}
+
+
+
+
+/* Hero Section */
+/* Hero Section */
+.hero {
+    position: relative;
+    background-image: url('images/background1.png'); /* Ensure the image path is correct */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 88vh; /* Full height of the viewport */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+/* Semi-Transparent Overlay */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black; adjust the opacity as needed */
+    z-index: 1;
+}
+
+/* Content Layer */
+.hero-content {
+    position: relative;
+    z-index: 2; /* Places the content above the overlay */
+}
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    color: white; /* Optional: Customize text color */
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Optional: Add text shadow for extra contrast */
+}
+
+.hero-content p {
+    font-size: 1.5em;
+    color: white; /* Optional: Customize text color */
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Optional: Add text shadow for extra contrast */
+}
+
+
+/* Features Section */
+section.features {
+    background-color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    font-size: 2.2em;
+    margin-bottom: 20px;
+    color: #0047AB;
+}
+
+.feature {
+    display: inline-block;
+    width: 18%;
+    text-align: center;
+    margin: 10px;
+}
+
+.feature h3 {
+    font-size: 1.3em;
+    margin-top: 15px;
+}
+
+.feature p {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.feature i {
+    font-size: 2.5em;
+    color: #0047AB;
+}
+
+
+
+
+/* How Can We Help Section */
+.help-section {
+    background-color: lightsteelblue;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.help-section h2 {
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    color: #0047AB;
+}
+
+.help-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Makes it responsive */
+}
+
+.help-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    width: 300px;
+    transition: transform 0.3s;
+}
+
+.help-card:hover {
+    transform: translateY(-5px);
+}
+
+.help-card i {
+    font-size: 3em;
+    color: #0047AB;
+    margin-bottom: 15px;
+}
+
+.help-card h3 {
+    font-size: 1.5em;
+    color: #0047AB;
+    margin-bottom: 10px;
+}
+
+.help-card p {
+    font-size: 1em;
+    color: #555;
+}
+
+
+
+
+/* Service Areas Section */
+.service-areas {
+    background-color: white;
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.service-areas h2 {
+    font-size: 2.2em;
+    color: #0047AB;
+    margin-bottom: 20px;
+}
+
+.service-cities {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Ensures it adjusts for smaller screens */
+    gap: 60px; /* Adds spacing between cities */
+}
+
+.city {
+    text-align: center;
+    width: 196px; /* Adjust as needed */
+}
+
+.city img {
+    width: 100%; /* Adjusts to the size of the city container */
+    height: auto;
+    border-radius: 12px; /* Optional: Adds rounded corners */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow effect */
+}
+
+.city p {
+    margin-top: 12px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+
+/* Footer Section */
+.footer-distributed {
+    background-color: #333;
+    color: white;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    flex: 1;
+    margin: 10px;
+}
+
+.footer-left h3 {
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 1em;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-center div {
+    margin-bottom: 15px;
+}
+
+.footer-center i {
+    font-size: 1.5em;
+    margin-right: 10px;
+    color: #ffd700;
+}
+
+.footer-right .footer-company-about {
+    font-size: 1em;
+    margin-bottom: 20px;
+}
+
+.footer-icons a {
+    color:  #ffd700;
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #ffd700; /* Highlight color on hover */
+}
+
+
+/* Small Footer Section */
+.footer-bottom {
+    background-color: #0047AB;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.9em;
+}

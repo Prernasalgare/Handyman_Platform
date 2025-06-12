@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login / Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+<style>
+    body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(145deg, #e8f0ff, #ffffff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.auth-wrapper {
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  width: 450px;
+  max-width: 90%;
+  text-align: center;
+}
+
+.site-title {
+  text-align: center;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.screen {
+  display: none;
+}
+
+.active-screen {
+  display: block;
+}
+
+#choiceScreen p {
+  margin: 10px 0 5px;
+  font-size: 15px;
+  color: #333;
+}
+
+
+.main-btn {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 30px;
+  background-color: #0047AB;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.main-btn:hover {
+  background-color: #007BFF;
+}
+
+.main-btn.outline {
+  background: transparent;
+  border: 2px solid #0047AB;
+  color: #0047AB;
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color:#0047AB;
+  font-size: 16px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  text-align: left;
+}
+
+input, select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+</style>
+
+
+</head>
+<body>
+  <div class="auth-wrapper">
+    <!-- Step 1: Choose Login or Sign Up -->
+<div id="choiceScreen" class="screen active-screen">
+  <h2 class="site-title">Handyman Services</h2>
+  
+  <p>Don't have an account?</p>
+  <button class="main-btn" onclick="showScreen('signupScreen')">Sign Up</button>
+  
+  <p>Already have an account?</p>
+  <button class="main-btn outline" onclick="showScreen('loginScreen')">Log In</button>
+</div>
+
+
+
+    <!-- Step 2: Sign Up Form -->
+    <div id="signupScreen" class="screen">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <h2>Create Account</h2>
+      <form onsubmit="register(event)">
+        <input type="text" placeholder="Full Name" name="name" required />
+        <input type="email" placeholder="Email" name="email" required />
+        <input type="tel" placeholder="Phone Number" name="phone" required />
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <select name="role" required>
+          <option value="CUSTOMER">Customer</option>
+          <option value="HANDYMAN">Handyman</option>
+        </select>
+        <button type="submit" class="main-btn">Register</button>
+      </form>
+    </div>
+
+    <!-- Step 2: Login Form -->
+    <div id="loginScreen" class="screen">
+      <button class="back-btn" onclick="goBack()">← Back</button>
+      <h2>Log In</h2>
+      <form onsubmit="login(event)">
+        <input type="text" placeholder="Username" name="username" required />
+        <input type="password" placeholder="Password" name="password" required />
+        <button type="submit" class="main-btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+
+
+
+  <script>
+
+function showScreen(screenId) {
+  document.querySelectorAll('.screen').forEach(screen => {
+    screen.classList.remove('active-screen');
+  });
+  document.getElementById(screenId).classList.add('active-screen');
+}
+
+function goBack() {
+  showScreen('choiceScreen');
+}
+
+function register(event) {
+  event.preventDefault();
+  const form = event.target;
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  fetch("http://localhost:8080/api/auth/register", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then(res => {
+    if (res.ok) {
+      alert("Registered successfully!");
+      goBack();
+    } else {
+      alert("Registration failed.");
+    }
+  });
+}
+
+function login(event) {
+  event.preventDefault();
+  const form = event.target;
+  const data = Object.fromEntries(new FormData(form).entries());
+
+  fetch("http://localhost:8080/api/auth/login", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  }).then(res => res.json()).then(user => {
+    if (user && user.role) {
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = user.role === "ADMIN" ? "admin-dashboard.html"
+                        : user.role === "HANDYMAN" ? "handyman-dashboard.html"
+                        : "index.html";
+    } else {
+      alert("Invalid login credentials.");
+    }
+  }).catch(() => alert("Login failed."));
+}
+
+    
+  </script>
+</body>
+</html>

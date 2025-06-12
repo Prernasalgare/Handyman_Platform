@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handyman Services</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/22978dc916.js" crossorigin="anonymous"></script>
+
+
+
+<style>
+
+.services-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #0047AB;
+    margin-bottom: 20px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.service-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.service-box img {
+    width: 230px; /* Increased width */
+    height: 150px; /* Increased height */
+    object-fit: cover;
+    border-radius: 50%; /* Ensures the image remains circular */
+    margin-bottom: 1px;
+    border: 0; /* Slightly thicker border for emphasis */
+}
+.service-box h3 {
+    margin-bottom: 10px;
+    color: #0047AB;
+}
+
+.service-box p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+a.btn {
+        text-decoration: none; /* Removes the underline */
+    }
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.book-now {
+    background-color: #0047AB;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.book-now:hover {
+    background-color: #003580;
+}
+
+.view-details {
+    background-color: #ddd;
+    color: #333;
+}
+
+.view-details:hover {
+    background-color: #bbb;
+}
+
+
+
+</style>
+
+
+
+
+
+
+</head>
+<body>
+
+    <!-- Header Section -->
+<header class="navbar">
+    <div class="logo-container">
+        <img src="images/handyman.png" alt="Handyman Logo" class="logo-img">
+        <span class="logo-text">Handyman Services</span>
+    </div>
+    <nav class="nav-links-container">
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    
+    <div class="auth-buttons">
+        <a href="login.html" class="login-btn">Login</a>
+        <a href="register.html" class="register-btn">Register</a>
+    </div>
+</header>
+
+
+<!-- ---------------------------------------------------------------------------------------------- -->
+
+
+<div class="services-page">
+    <section class="services-list">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <!-- Service Box -->
+            <div class="service-box">
+                <img src="images/furniture.jpg" alt="Furniture Assembly">
+                <h3>Furniture Assembly</h3>
+                <p>Assemble furniture efficiently with our expert help.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/tv.jpg" alt="TV Mounting">
+                <h3>TV Mounting</h3>
+                <p>Professional TV mounting services for all screen sizes.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/moving.jpg" alt="">
+                <h3>Help Moving</h3>
+                <p>Assistance for packing and moving to a new location.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/Painting-Services.jpg" alt="TV Mounting">
+                <h3>Painting</h3>
+                <p>High-quality painting services for your home or office.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/cabinet.jpg" alt="TV Mounting">
+                <h3>Mounting Services</h3>
+                <p>Reliable mounting solutions for shelves, cabinets, and more.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/elctricalservices.png" alt="TV Mounting">
+                <h3>Electrical Help</h3>
+                <p>Electrical repairs and installations for your convenience.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/plumbing.jpg" alt="TV Mounting">
+                <h3>Plumbing</h3>
+                <p>Fix plumbing issues or install new fittings with ease.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/light.jpg" alt="TV Mounting">
+                <h3>Lighting Installation</h3>
+                <p>Beautiful and functional lighting installation services.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/cleaning.jpg" alt="TV Mounting">
+                <h3>Cleaning Services</h3>
+                <p>Expert cleaning services for a sparkling space.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/floor.jpg" alt="TV Mounting">
+                <h3>Flooring & Tiling Help</h3>
+                <p>Install or repair flooring and tiles with precision.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/smarthome.jpg" alt="TV Mounting">
+                <h3>Smart Home Installation</h3>
+                <p>Set up smart home systems for a modern living experience.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+
+            <div class="service-box">
+                <img src="images/theater.jpg" alt="TV Mounting">
+                <h3>Home Theater Installing</h3>
+                <p>Get your home theater setup, including surround sound and TVs, setup with our taskers.</p>
+                <a href="booknow.html" class="btn book-now">Book Now</a>
+                <a href="details.html" class="btn view-details">View Details</a>
+            </div>
+        </div>
+    </section>
+</div>
+
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+    <!-- Footer Section -->
+<footer class="footer-distributed">
+    <div class="footer-left">
+        <h3>Handyman<span> Services</span></h3>
+        <p class="footer-links">
+            <a href="index.html" class="link-1">Home</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </p>
+    </div>
+
+    <div class="footer-center">
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>123 Main Street,</span> Springfield</p>
+        </div>
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+1 555 123 4567</p>
+        </div>
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:support@handymanservices.com">support@handymanservices.com</a></p>
+        </div>
+    </div>
+
+    <div class="footer-right">
+        <p class="footer-company-about">
+            <span>About Us</span><br>
+            We provide trusted handyman services for all your home and office needs. Our team is committed to excellence and customer satisfaction.
+        </p>
+        <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+            <a href="#"><i class="fa fa-youtube"></i></a>
+        </div>
+    </div>
+</footer>
+
+<!-- Small Footer Section -->
+<footer class="footer-bottom">
+    <p>© 2025 Handyman Services. All rights reserved.</p>
+</footer>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
