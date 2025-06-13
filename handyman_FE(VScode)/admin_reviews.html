@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Reviews</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2f3542;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #fff;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    th {
+      background-color: #57606f;
+      color: #fff;
+    }
+    button {
+      padding: 6px 10px;
+      margin-right: 5px;
+      border: none;
+      cursor: pointer;
+    }
+    .edit-btn {
+      background-color: #1e90ff;
+      color: #fff;
+    }
+    .delete-btn {
+      background-color: #ff4757;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard - Reviews</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>UserName</th>
+          <th>HandymanName</th>
+          <th>Rating</th>
+          <th>Review</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="reviewTableBody"></tbody>
+    </table>
+  </main>
+
+  <script>
+    const API_URL = 'http://localhost:8080/api/reviews';
+
+    function fetchReviews() {
+      fetch(API_URL + '/all')
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.getElementById('reviewTableBody');
+          tbody.innerHTML = '';
+          data.forEach(review => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${review.id}</td>
+              <td>${review.userName}</td>
+              <td>${review.handymanName}</td>
+              <td>${review.rating}</td>
+              <td>${review.review}</td>
+              <td>
+                <button class="edit-btn" onclick="editReview(${review.id})">Edit</button>
+                <button class="delete-btn" onclick="deleteReview(${review.id})">Delete</button>
+              </td>
+            `;
+            tbody.appendChild(row);
+          });
+        });
+    }
+
+    function deleteReview(id) {
+      fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+      }).then(() => fetchReviews());
+    }
+
+    function editReview(id) {
+      // Step 1: Get the existing review data
+      fetch(`${API_URL}/${id}`)
+        .then(res => res.json())
+        .then(existing => {
+          if (!existing) {
+            alert('Review not found!');
+            return;
+          }
+
+          // Step 2: Prompt user with existing values
+          const newUserName = prompt("Enter reviewer's name:", existing.userName);
+          const newHandymanName = prompt("Enter HandymanName:", existing.handymanName);
+          const newRating = prompt("Enter rating:", existing.rating);
+          const newReview = prompt("Enter review:", existing.review);
+
+          // Step 3: Build updated object (keep old values if input is blank or null)
+          const updatedReview = {
+            userName: newUserName && newUserName.trim() !== '' ? newUserName : existing.userName,
+            handymanName: newHandymanName && newHandymanName.trim() !== '' ? newHandymanName : existing.handymanName,
+            rating: newRating && newRating.trim() !== '' ? newRating : existing.rating,
+            review: newReview && newReview.trim() !== '' ? newReview : existing.review
+          };
+
+          // Step 4: Send update to backend
+          fetch(`${API_URL}/${id}`, {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedReview)
+          }).then(() => fetchReviews());
+        });
+    }
+
+    fetchReviews();
+  </script>
+</body>
+</html>

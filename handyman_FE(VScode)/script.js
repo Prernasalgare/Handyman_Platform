@@ -92,6 +92,5 @@ function submitForm(event) {
 
 
     
-//feedback form and details page---------------------------------------------------------------------------------
 
     

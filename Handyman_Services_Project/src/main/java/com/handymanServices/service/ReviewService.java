@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import com.handymanServices.entity.Handyman1;
 import com.handymanServices.entity.Review;
@@ -46,4 +47,35 @@ public class ReviewService {
     public List<Handyman1> getAllHandymen() {
         return handymanRepo.findAll();
     }
+    
+    public void deleteReview(Long id) {
+        reviewRepo.deleteById(id);
+    }
+    
+    public Review updateReview(Long id, Review updatedReview) {
+        Review existing = reviewRepo.findById(id).orElse(null);
+        if (existing != null) {
+            existing.setUserName(updatedReview.getUserName());
+            existing.setHandymanName(updatedReview.getHandymanName());
+            existing.setRating(updatedReview.getRating());
+            existing.setReview(updatedReview.getReview());
+
+            // Update other fields as needed
+            return reviewRepo.save(existing);
+        }
+        return null;
+    }
+    
+    public List<Review> getAllReviews() {
+        return reviewRepo.findAll();
+    }
+
+    
+    public Review getReviewById(Long id) {
+        return reviewRepo.findById(id).orElse(null);
+    }
+
+    
+    
 }
+    

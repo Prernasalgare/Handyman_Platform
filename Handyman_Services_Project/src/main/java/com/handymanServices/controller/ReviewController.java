@@ -31,4 +31,28 @@ public class ReviewController {
     public List<Review> getLatestReviews() {
         return reviewService.getLatestReviews();
     }
+    
+ // DELETE Review by ID
+    @DeleteMapping("/reviews/{id}")
+    public void deleteReview(@PathVariable Long id) {
+        reviewService.deleteReview(id);
+    }
+    
+ // UPDATE a review
+    @PutMapping("/reviews/{id}")
+    public Review updateReview(@PathVariable Long id, @RequestBody Review updatedReview) {
+        return reviewService.updateReview(id, updatedReview);
+    }
+    
+    @GetMapping("/reviews/all")
+    public List<Review> getAllReviews() {
+        return reviewService.getAllReviews();
+    }
+
+    @GetMapping("/reviews/{id}")
+    public Review getReviewById(@PathVariable Long id) {
+        return reviewService.getReviewById(id);
+    }
+
+
 }

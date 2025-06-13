@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Login / Sign Up</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handyman Services</title>
+    <link rel="stylesheet" href="style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <script src="https://kit.fontawesome.com/22978dc916.js" crossorigin="anonymous"></script>
+
 <style>
     body {
   margin: 0;
@@ -92,10 +97,9 @@ input, select {
 }
 
 </style>
-
-
 </head>
 <body>
+
   <div class="auth-wrapper">
     <!-- Step 1: Choose Login or Sign Up -->
 <div id="choiceScreen" class="screen active-screen">
@@ -188,7 +192,7 @@ function login(event) {
   }).then(res => res.json()).then(user => {
     if (user && user.role) {
       localStorage.setItem("user", JSON.stringify(user));
-      window.location.href = user.role === "ADMIN" ? "admin-dashboard.html"
+      window.location.href = user.role === "ADMIN" ? "admin_dashboard-home.html"
                         : user.role === "HANDYMAN" ? "handyman-dashboard.html"
                         : "index.html";
     } else {
