@@ -97,10 +97,15 @@
     }
 
     function deleteReview(id) {
-      fetch(`${API_URL}/${id}`, {
-        method: 'DELETE'
-      }).then(() => fetchReviews());
-    }
+  const confirmDelete = confirm("Are you sure you want to delete this review?");
+  if (!confirmDelete) return;
+
+  fetch(`${API_URL}/${id}`, {
+    method: 'DELETE'
+  })
+  .then(() => fetchReviews());
+}
+
 
     function editReview(id) {
       // Step 1: Get the existing review data

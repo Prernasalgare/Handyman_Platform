@@ -1,0 +1,156 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard - Handyman Applications</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f1f2f6;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #2f3542;
+      color: white;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      padding: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: #ffffff;
+    }
+    th, td {
+      padding: 12px;
+      border: 1px solid #ccc;
+      text-align: left;
+      vertical-align: top;
+    }
+    th {
+      background-color: #57606f;
+      color: white;
+    }
+    button {
+      padding: 6px 10px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      margin-right: 5px;
+    }
+    .delete-btn {
+      background-color: #ff4757;
+    }
+    .approve-btn {
+      background-color: #2ed573;
+    }
+    .disabled {
+      background-color: #a4b0be !important;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Admin Dashboard - Handyman Applications</h1>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Skills</th>
+          <th>Areas</th>
+          <th>Approved</th>
+
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="applicationsTableBody"></tbody>
+    </table>
+  </main>
+
+  <script>
+    const API_URL = 'http://localhost:8080/api/handyman';
+
+    function fetchApplications() {
+      fetch(API_URL)
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.getElementById('applicationsTableBody');
+          tbody.innerHTML = '';
+          data.forEach(app => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+              <td>${app.id}</td>
+              <td>${app.name}</td>
+              <td>${app.email}</td>
+              <td>${app.phone}</td>
+              <td>${app.skills}</td>
+              <td>${app.areas}</td>
+              <td>${app.approved ? "Yes" : "No"}</td>
+
+
+
+              
+              <td>
+                <button class="approve-btn" onclick="approveApplication(${app.id})">Approve</button>
+    <button style="background-color:#1e90ff;" onclick="editApplication(${app.id})">Edit</button>
+                <button class="delete-btn" onclick="deleteApplication(${app.id})">Delete</button>
+              </td>
+            `;
+            tbody.appendChild(row);
+          });
+        });
+    }
+
+    function deleteApplication(id) {
+        const confirmDelete = confirm("Are you sure you want to delete this message?");
+    if (!confirmDelete) return;
+
+      fetch(`${API_URL}/${id}`, {
+        method: 'DELETE'
+      }).then(() => fetchApplications());
+    }
+
+    function approveApplication(id) {
+  fetch(`${API_URL}/approve/${id}`, {
+    method: 'PUT'
+  }).then(() => {
+    alert(`Application ID ${id} approved.`);
+    fetchApplications();
+  });
+}
+
+function editApplication(id) {
+  fetch(`${API_URL}/${id}`)
+    .then(res => res.json())
+    .then(app => {
+      const name = prompt("Enter name:", app.name) || app.name;
+      const email = prompt("Enter email:", app.email) || app.email;
+      const phone = prompt("Enter phone:", app.phone) || app.phone;
+      const skills = prompt("Enter skills:", app.skills) || app.skills;
+      const areas = prompt("Enter areas:", app.areas) || app.areas;
+
+      const updatedApp = { ...app, name, email, phone, skills, areas };
+
+      fetch(`${API_URL}/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedApp)
+      }).then(() => fetchApplications());
+    });
+}
+
+    
+
+    fetchApplications();
+  </script>
+</body>
+</html>

@@ -21,6 +21,8 @@ public class BookingController {
         return bookingService.saveBooking(booking);
     }
     
+
+    
  // READ ALL
     @GetMapping
     public List<Booking> getAllBookings() {

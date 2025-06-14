@@ -16,6 +16,7 @@ public class Handyman {
     private String skills;
 
     private String areas;
+    private boolean approved = false;
 
 	public Long getId() {
 		return id;
@@ -65,7 +66,13 @@ public class Handyman {
 		this.areas = areas;
 	}
 
-   
+	public boolean isApproved() { 
+		return approved; 
+		}
+
+    public void setApproved(boolean approved) { 
+    	this.approved = approved; 
+    	}
     
     
 }

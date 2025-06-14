@@ -37,8 +37,6 @@ public class BookingService {
             existingBooking.setEmail(updatedBooking.getEmail());
             existingBooking.setService(updatedBooking.getService());
             existingBooking.setDate(updatedBooking.getDate());
-           // existingBooking.setTime(updatedBooking.getTime());
-            // Add any other fields you want to update
             return bookingRepository.save(existingBooking);
         }
         return null;

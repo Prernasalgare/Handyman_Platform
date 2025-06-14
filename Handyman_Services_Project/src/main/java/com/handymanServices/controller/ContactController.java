@@ -2,6 +2,9 @@ package com.handymanServices.controller;
 
 import com.handymanServices.entity.Contact;
 import com.handymanServices.repository.ContactRepository;
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = "http://127.0.0.1:5501")
@@ -20,4 +23,15 @@ public class ContactController {
         contactRepository.save(contact);
         return ResponseEntity.ok("Contact form submitted successfully!");
     }
+    @GetMapping
+    public List<Contact> getAllMessages() {
+        return contactRepository.findAll();
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@PathVariable Long id) {
+    	contactRepository.deleteById(id);
+    }
+    
+    
 }
