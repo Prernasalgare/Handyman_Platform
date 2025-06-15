@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8080"; // Spring Boot backend URl
+const BASE_URL = "http://localhost:8080"; 
 
 document.getElementById('contactForm').addEventListener('submit', async (event) => {
     event.preventDefault();

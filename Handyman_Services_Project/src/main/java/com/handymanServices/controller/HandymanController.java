@@ -28,15 +28,17 @@ public class HandymanController {
     public List<Handyman> getAll() {
         return handymanRepository.findAll();
     }
-    
+
     @PutMapping("/{id}")
     public ResponseEntity<Handyman> updateApplication(@PathVariable Long id, @RequestBody Handyman updated) {
         return handymanRepository.findById(id).map(existing -> {
+       	
             existing.setName(updated.getName());
             existing.setEmail(updated.getEmail());
             existing.setPhone(updated.getPhone());
             existing.setSkills(updated.getSkills());
             existing.setAreas(updated.getAreas());
+            
             return ResponseEntity.ok(handymanRepository.save(existing));
         }).orElse(ResponseEntity.notFound().build());
     }
@@ -59,4 +61,8 @@ public class HandymanController {
     public void delete(@PathVariable Long id) {
     	handymanRepository.deleteById(id);
     }
+    
+    
+ 
+
 }

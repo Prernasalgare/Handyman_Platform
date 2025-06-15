@@ -9,6 +9,6 @@ public class AboutController {
 
     @GetMapping("/about")
     public String showAboutPage() {
-        return "about"; // Returns the about.html template
+        return "about"; 
     }
 }

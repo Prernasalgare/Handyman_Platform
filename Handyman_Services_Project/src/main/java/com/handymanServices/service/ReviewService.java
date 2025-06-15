@@ -59,7 +59,6 @@ public class ReviewService {
             existing.setRating(updatedReview.getRating());
             existing.setReview(updatedReview.getReview());
 
-            // Update other fields as needed
             return reviewRepo.save(existing);
         }
         return null;

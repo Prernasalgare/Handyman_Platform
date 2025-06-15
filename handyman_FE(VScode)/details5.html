@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -217,11 +217,12 @@
 
 
     <div class="container">
-        <h1>Furniture Assembly</h1>
+        <h1>Light Installation</h1>
         <center><a href="booknow.html" class="btn book-now">Book Now</a></center>
 
         <div class="flex-container">
             <div class="left-column">
+                
                 <table class="subservices-table">
                     <thead>
                         <tr>
@@ -232,35 +233,30 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Wardrobe Assembly</td>
-                            <td>Precision in assembling modular wardrobes with sleek designs.</td>
-                            <td>1,000 - 2,000</td>
-                        </tr>
-                        <tr>
-                            <td>Table Assembly</td>
-                            <td>Professional assembly of coffee, dining, and office tables.</td>
-                            <td>800 - 1,500</td>
-                        </tr>
-                        <tr>
-                            <td>Chair Assembly</td>
-                            <td>Sturdy and durable assembly of chairs for all purposes.</td>
-                            <td>500 - 1,000</td>
-                        </tr>
-                        <tr>
-                            <td>Bed Assembly</td>
-                            <td>Durable and stable bed frame assembly for a perfect night's sleep.</td>
-                            <td>1,500 - 3,000</td>
-                        </tr>
-                        <tr>
-                            <td>Sofa Assembly</td>
-                            <td>Assembling all types of sofas with excellent craftsmanship.</td>
-                            <td>2,000 - 4,000</td>
-                        </tr>
-                        <tr>
-                            <td>Shelf Assembly</td>
-                            <td>Efficient and robust shelf assembly for homes and offices.</td>
-                            <td>700 - 1,200</td>
-                        </tr>
+              <td>Ceiling Light Installation</td>
+              <td>Installation of standard ceiling lights and holders.</td>
+              <td>300 - 800</td>
+            </tr>
+            <tr>
+              <td>LED Panel Setup</td>
+              <td>Fixing and wiring of LED panel lighting.</td>
+              <td>500 - 1,200</td>
+            </tr>
+            <tr>
+              <td>Chandelier Mounting</td>
+              <td>Secure and professional chandelier installation.</td>
+              <td>1,500 - 3,500</td>
+            </tr>
+            <tr>
+              <td>Outdoor Light Setup</td>
+              <td>Garden and exterior light installation with weatherproof fittings.</td>
+              <td>800 - 2,000</td>
+            </tr>
+            <tr>
+              <td>Decorative Lights</td>
+              <td>Installation of ambient or decorative lighting fixtures.</td>
+              <td>600 - 1,500</td>
+            </tr>
                     </tbody>
                 </table>
             </div>
@@ -294,6 +290,7 @@
             <div class="reviews-section">
                 <h2>Latest Reviews</h2>
                 <div id="reviews-list">
+    
                 </div>
             </div>
         </div>
@@ -326,7 +323,7 @@ async function submitFeedback(event) {
     });
 
     if (response.ok) {
-        loadPageData(); 
+        loadPageData(); // refresh reviews and handymen
         event.target.reset();
     } else {
         alert("Failed to submit review. Please check handyman name.");
@@ -381,7 +378,7 @@ document.addEventListener("DOMContentLoaded", loadPageData);
     <div class="footer-center">
         <div>
             <i class="fa fa-map-marker"></i>
-            <p><span>123 Main Road,</span>Latur</p>
+            <p><span>123 Main Road,</span> Latur</p>
         </div>
         <div>
             <i class="fa fa-phone"></i>
@@ -406,9 +403,14 @@ document.addEventListener("DOMContentLoaded", loadPageData);
         </div>
     </div>
 </footer>
+
 <footer class="footer-bottom">
     <p>© 2025 Handyman Services. All rights reserved.</p>
 </footer>
 
 </body>
 </html>
+
+  
+  
+  

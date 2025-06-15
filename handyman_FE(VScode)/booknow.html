@@ -80,25 +80,14 @@
     </nav>
     
     <div class="auth-buttons">
-        <a href="login.html" class="login-btn">Login</a>
-        <a href="register.html" class="register-btn">Register</a>
+    <a href="auth.html" class="login-btn">Sign Up / Log In</a>
+
     </div>
 </header>
-
-
-
-
-
-
-
-
-
-
 
 <div class="book-now-page">
         <h2>Book Your Service</h2>
         <form id="bookNowForm" method="post" action="/api/bookings" onsubmit="submitForm(event)">
-            <!-- Service Selection -->
             <label for="service">Select or Enter Service:</label>
             <input list="services" id="service" name="service" placeholder="Select or type a sub-service" required>
             <datalist id="services">
@@ -107,41 +96,30 @@
                 <option value="Chair Assembly"></option>
                 <option value="Wall Mount"></option>
                 <option value="Ceiling Mount"></option>
-                <option value="Swivel Mount"></option>
                 <option value="Furniture Moving"></option>
                 <option value="Packing Assistance"></option>
-                <option value="Transportation"></option>
                 <option value="Wall Painting"></option>
                 <option value="Ceiling Painting"></option>
                 <option value="Outdoor Painting"></option>
                 <option value="Shelf Mounting"></option>
-                <option value="Curtain Rod Mounting"></option>
                 <option value="Mirror Mounting"></option>
                 <option value="Fan Installation"></option>
                 <option value="Switchboard Repair"></option>
                 <option value="Lighting Setup"></option>
                 <option value="Leak Repair"></option>
                 <option value="Pipe Installation"></option>
-                <option value="Faucet Replacement"></option>
-                <option value="Chandelier Setup"></option>
                 <option value="LED Strip Installation"></option>
                 <option value="Outdoor Lighting"></option>
-                <option value="Carpet Cleaning"></option>
                 <option value="Window Cleaning"></option>
-                <option value="Deep Cleaning"></option>
                 <option value="Tile Installation"></option>
                 <option value="Tile Repair"></option>
                 <option value="Floor Polishing"></option>
-                <option value="Smart Lock Installation"></option>
-                <option value="Thermostat Setup"></option>
                 <option value="Security Camera Setup"></option>
             </datalist>
 
-            <!-- Location Input -->
             <label for="location">Your Location:</label>
             <input type="text" id="location" name="location" placeholder="Enter your address or area" required>
 
-            <!-- User Details -->
             <label for="name">Your Name:</label>
             <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
@@ -151,87 +129,15 @@
             <label for="phone">Phone Number:</label>
             <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
 
-            <!-- Preferred Date -->
             <label for="date">Preferred Date:</label>
             <input type="date" id="date" name="date" required>
 
-            <!-- Additional Details -->
             <label for="message">Additional Details:</label>
             <textarea id="message" name="message" placeholder="Enter any additional details" rows="4"></textarea>
 
-            <!-- Submit Button -->
             <button type="submit">Confirm Booking</button>
-
-
         </form>
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <br>
 
     <!-- Footer Section -->
@@ -249,7 +155,7 @@
     <div class="footer-center">
         <div>
             <i class="fa fa-map-marker"></i>
-            <p><span>123 Main Street,</span> Springfield</p>
+            <p><span>123 Main Road,</span> Latur</p>
         </div>
         <div>
             <i class="fa fa-phone"></i>
@@ -275,7 +181,6 @@
     </div>
 </footer>
 
-<!-- Small Footer Section -->
 <footer class="footer-bottom">
     <p>© 2025 Handyman Services. All rights reserved.</p>
 </footer>

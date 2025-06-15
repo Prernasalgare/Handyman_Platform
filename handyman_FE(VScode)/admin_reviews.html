@@ -108,7 +108,6 @@
 
 
     function editReview(id) {
-      // Step 1: Get the existing review data
       fetch(`${API_URL}/${id}`)
         .then(res => res.json())
         .then(existing => {
@@ -116,14 +115,11 @@
             alert('Review not found!');
             return;
           }
-
-          // Step 2: Prompt user with existing values
           const newUserName = prompt("Enter reviewer's name:", existing.userName);
           const newHandymanName = prompt("Enter HandymanName:", existing.handymanName);
           const newRating = prompt("Enter rating:", existing.rating);
           const newReview = prompt("Enter review:", existing.review);
 
-          // Step 3: Build updated object (keep old values if input is blank or null)
           const updatedReview = {
             userName: newUserName && newUserName.trim() !== '' ? newUserName : existing.userName,
             handymanName: newHandymanName && newHandymanName.trim() !== '' ? newHandymanName : existing.handymanName,
@@ -131,7 +127,6 @@
             review: newReview && newReview.trim() !== '' ? newReview : existing.review
           };
 
-          // Step 4: Send update to backend
           fetch(`${API_URL}/${id}`, {
             method: 'PUT',
             headers: {

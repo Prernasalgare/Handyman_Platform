@@ -24,12 +24,12 @@ public class BookingService {
         return bookingRepository.findAll();
     }
 
-    // READ BY ID
+ // READ BY ID
     public Booking getBookingById(Long id) {
         return bookingRepository.findById(id).orElse(null);
     }
 
-    // UPDATE
+ // UPDATE
     public Booking updateBooking(Long id, Booking updatedBooking) {
         Booking existingBooking = bookingRepository.findById(id).orElse(null);
         if (existingBooking != null) {
@@ -42,7 +42,7 @@ public class BookingService {
         return null;
     }
 
-    // DELETE
+ // DELETE
     public void deleteBooking(Long id) {
         bookingRepository.deleteById(id);
     }

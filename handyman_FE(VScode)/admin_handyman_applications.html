@@ -95,13 +95,10 @@
               <td>${app.skills}</td>
               <td>${app.areas}</td>
               <td>${app.approved ? "Yes" : "No"}</td>
-
-
-
               
               <td>
                 <button class="approve-btn" onclick="approveApplication(${app.id})">Approve</button>
-    <button style="background-color:#1e90ff;" onclick="editApplication(${app.id})">Edit</button>
+    <button style="background-color:#1e90ff;"  onclick="editApplication(${app.id})">Edit</button>
                 <button class="delete-btn" onclick="deleteApplication(${app.id})">Delete</button>
               </td>
             `;
@@ -129,7 +126,7 @@
 }
 
 function editApplication(id) {
-  fetch(`${API_URL}/${id}`)
+  fetch(`${API_URL}`)
     .then(res => res.json())
     .then(app => {
       const name = prompt("Enter name:", app.name) || app.name;

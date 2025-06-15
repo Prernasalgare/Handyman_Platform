@@ -101,7 +101,7 @@ input, select {
 <body>
 
   <div class="auth-wrapper">
-    <!-- Step 1: Choose Login or Sign Up -->
+   
 <div id="choiceScreen" class="screen active-screen">
   <h2 class="site-title">Handyman Services</h2>
   
@@ -112,9 +112,6 @@ input, select {
   <button class="main-btn outline" onclick="showScreen('loginScreen')">Log In</button>
 </div>
 
-
-
-    <!-- Step 2: Sign Up Form -->
     <div id="signupScreen" class="screen">
       <button class="back-btn" onclick="goBack()">← Back</button>
       <h2>Create Account</h2>
@@ -132,7 +129,6 @@ input, select {
       </form>
     </div>
 
-    <!-- Step 2: Login Form -->
     <div id="loginScreen" class="screen">
       <button class="back-btn" onclick="goBack()">← Back</button>
       <h2>Log In</h2>
@@ -193,7 +189,7 @@ function login(event) {
     if (user && user.role) {
       localStorage.setItem("user", JSON.stringify(user));
       window.location.href = user.role === "ADMIN" ? "admin_dashboard-home.html"
-                        : user.role === "HANDYMAN" ? "handyman-dashboard.html"
+                        : user.role === "HANDYMAN" ? "index.html"
                         : "index.html";
     } else {
       alert("Invalid login credentials.");

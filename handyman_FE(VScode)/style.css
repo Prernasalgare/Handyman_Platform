@@ -1,4 +1,3 @@
-/* General Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,8 +10,6 @@ body {
     color: #333;
     line-height: 1.6;
 }
-
-
 
 /* Header Section */
 header.navbar {
@@ -35,17 +32,16 @@ header.navbar {
 }
 
 .logo-img {
-    height: 50px; /* Keep the height fixed */
-    width: auto; /* Maintain aspect ratio */
-    transform: scale(1.6); /* Scale up the image */
+    height: 50px; 
+    width: auto; 
+    transform: scale(1.6); 
 }
 
 .logo-text {
-    font-size: 1.8em; /* Increase text size slightly */
+    font-size: 1.8em; 
     font-weight: bold;
     color: #ffd700;
 }
-
 
 .nav-links-container {
     flex-grow: 1;
@@ -62,7 +58,7 @@ header.navbar {
 .nav-links li a {
     color: white;
     text-decoration: none;
-    font-size: 1.1em;
+    font-size: 1.2em;
     transition: color 0.3s ease-in-out;
     position: relative;
 }
@@ -87,8 +83,6 @@ header.navbar {
     width: 100%;
 }
 
-
-/* Auth Buttons */
 .auth-buttons {
     display: flex;
     gap: 15px;
@@ -114,7 +108,7 @@ header.navbar {
     color: #0047AB;
 }
 
-/* Responsive Design */
+
 @media (max-width: 768px) {
     .nav-links {
         display: none;
@@ -127,19 +121,15 @@ header.navbar {
     
 }
 
-
-
-
-/* Hero Section */
 /* Hero Section */
 .hero {
     position: relative;
-    background-image: url('images/background1.png'); /* Ensure the image path is correct */
+    background-image: url('images/background1.png'); 
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     width: 100%;
-    height: 88vh; /* Full height of the viewport */
+    height: 88vh; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +137,6 @@ header.navbar {
     color: white;
 }
 
-/* Semi-Transparent Overlay */
 .hero::before {
     content: '';
     position: absolute;
@@ -155,27 +144,27 @@ header.navbar {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black; adjust the opacity as needed */
+    background-color: rgba(0, 0, 0, 0.5); 
     z-index: 1;
 }
 
 /* Content Layer */
 .hero-content {
     position: relative;
-    z-index: 2; /* Places the content above the overlay */
+    z-index: 2; 
 }
 
 .hero-content h1 {
     font-size: 3em;
     margin-bottom: 10px;
-    color: white; /* Optional: Customize text color */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Optional: Add text shadow for extra contrast */
+    color: white; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
 }
 
 .hero-content p {
     font-size: 1.5em;
-    color: white; /* Optional: Customize text color */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Optional: Add text shadow for extra contrast */
+    color: white; 
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); 
 }
 
 
@@ -234,7 +223,7 @@ section.features {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap; /* Makes it responsive */
+    flex-wrap: wrap; 
 }
 
 .help-card {
@@ -287,20 +276,20 @@ section.features {
 .service-cities {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Ensures it adjusts for smaller screens */
-    gap: 60px; /* Adds spacing between cities */
+    flex-wrap: wrap; 
+    gap: 60px; 
 }
 
 .city {
     text-align: center;
-    width: 196px; /* Adjust as needed */
+    width: 196px; 
 }
 
 .city img {
-    width: 100%; /* Adjusts to the size of the city container */
+    width: 100%; 
     height: auto;
-    border-radius: 12px; /* Optional: Adds rounded corners */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); /* Optional: Adds a shadow effect */
+    border-radius: 12px; 
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .city p {
@@ -367,11 +356,9 @@ section.features {
 }
 
 .footer-icons a:hover {
-    color: #ffd700; /* Highlight color on hover */
+    color: #ffd700; 
 }
 
-
-/* Small Footer Section */
 .footer-bottom {
     background-color: #0047AB;
     color: white;

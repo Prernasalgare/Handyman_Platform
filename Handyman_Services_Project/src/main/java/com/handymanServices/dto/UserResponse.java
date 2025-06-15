@@ -10,7 +10,6 @@ public class UserResponse {
         this.username = username;
         this.role = role;
     }
-    // Getters and Setters
 
 	public Long getId() {
 		return id;

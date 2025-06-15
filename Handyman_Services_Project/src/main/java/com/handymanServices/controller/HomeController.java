@@ -11,7 +11,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String home() {
-        return "home"; // Refers to home.html in templates folder
+        return "home"; 
     }
 }
 
